@@ -24,5 +24,127 @@
 .formatted-response code,.message.model .content code{font-size:.92em}
 .formatted-response td .code-block-shell,.formatted-response th .code-block-shell,.message.model td .code-block-shell,.message.model th .code-block-shell{width:100%!important;max-width:100%!important;min-width:0!important}
 
-@media(max-width:600px){
-    .formatted-response h1,.message.model .content h1{font-size:1.28rem}.formatted-response h2,.message.model .content h2{font-size:1.14rem}.formatted-response .table-wrap{margin:.9em 0;border-radius:9px}.formatted-response table{font-size:.88em}.formatted-response th,.formatted-response td,.message.model .content th,.message.model .content td{padding:.55em .65em;min-width:100px}.formatted-response .katex{font-size:.98em}.formatted-response .code-copy-btn,.message.model .code-copy-btn{top:7px!important;right:7px!important;min-height:29px;padding:.25rem .55rem}.formatted-response .code-scroll,.message.model .code-scroll{padding-top:38px!important}.message.model .content table{display:block;overflow-x:auto}}
+
+/* ============================================================
+   Chemistry / KaTeX enhancements
+   ============================================================ */
+
+.formatted-response .katex,
+.message.model .content .katex {
+    font-size: 1.04em;
+}
+
+.formatted-response .katex-display,
+.message.model .content .katex-display {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.9em 0;
+    padding: 0.15em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+.formatted-response .katex-display > .katex,
+.message.model .content .katex-display > .katex {
+    max-width: none;
+}
+
+/*
+ * Chemistry formulas can contain long reaction equations.
+ * Keep them readable on mobile without breaking the formula.
+ */
+.formatted-response .katex-display .katex-html,
+.message.model .content .katex-display .katex-html {
+    min-width: max-content;
+}
+
+/*
+ * Inline chemistry such as:
+ *
+ * H₂O
+ * CO₂
+ * SO₄²⁻
+ * Fe³⁺
+ */
+.formatted-response .katex,
+.message.model .content .katex {
+    white-space: nowrap;
+}
+
+/*
+ * Chemistry reaction arrows and symbols should
+ * remain vertically aligned with surrounding text.
+ */
+.formatted-response .katex .mord,
+.formatted-response .katex .mrel,
+.formatted-response .katex .mbin,
+.formatted-response .katex .mopen,
+.formatted-response .katex .mclose,
+.message.model .content .katex .mord,
+.message.model .content .katex .mrel,
+.message.model .content .katex .mbin,
+.message.model .content .katex .mopen,
+.message.model .content .katex .mclose {
+    line-height: 1.25;
+}
+
+
+@media (max-width: 600px) {
+    .formatted-response h1,
+    .message.model .content h1 {
+        font-size: 1.28rem;
+    }
+
+    .formatted-response h2,
+    .message.model .content h2 {
+        font-size: 1.14rem;
+    }
+
+    .formatted-response .table-wrap {
+        margin: 0.9em 0;
+        border-radius: 9px;
+    }
+
+    .formatted-response table {
+        font-size: 0.88em;
+    }
+
+    .formatted-response th,
+    .formatted-response td,
+    .message.model .content th,
+    .message.model .content td {
+        padding: 0.55em 0.65em;
+        min-width: 100px;
+    }
+
+    .formatted-response .katex,
+    .message.model .content .katex {
+        font-size: 0.98em;
+    }
+
+    .formatted-response .katex-display,
+    .message.model .content .katex-display {
+        margin: 0.75em 0;
+        padding: 0.1em 0;
+    }
+
+    .formatted-response .code-copy-btn,
+    .message.model .code-copy-btn {
+        top: 7px !important;
+        right: 7px !important;
+        min-height: 29px;
+        padding: 0.25rem 0.55rem;
+    }
+
+    .formatted-response .code-scroll,
+    .message.model .code-scroll {
+        padding-top: 38px !important;
+    }
+
+    .message.model .content table {
+        display: block;
+        overflow-x: auto;
+    }
+}
