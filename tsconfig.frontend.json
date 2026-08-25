@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "None",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "strict": false,
+    "noCheck": true,
+    "skipLibCheck": true,
+    "noEmit": false,
+    "noEmitOnError": false,
+    "outDir": "dist",
+    "rootDir": "src",
+    "removeComments": false,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/app/api/**/*.ts"]
+}
