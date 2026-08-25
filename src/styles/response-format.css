@@ -1,32 +1,188 @@
 /* Technical response typography */
-.formatted-response,.message.model .content{line-height:1.7;overflow-wrap:anywhere}
-.formatted-response h1,.formatted-response h2,.formatted-response h3,.formatted-response h4,.message.model .content h1,.message.model .content h2,.message.model .content h3,.message.model .content h4{margin:1.15em 0 .55em;line-height:1.3;font-weight:700}
-.formatted-response h1:first-child,.formatted-response h2:first-child,.formatted-response h3:first-child,.message.model .content h1:first-child,.message.model .content h2:first-child,.message.model .content h3:first-child{margin-top:0}
-.formatted-response h1,.message.model .content h1{font-size:1.45rem}.formatted-response h2,.message.model .content h2{font-size:1.25rem}.formatted-response h3,.message.model .content h3{font-size:1.08rem}
-.formatted-response p,.message.model .content p{margin:0 0 .85em;line-height:1.7}.formatted-response p:last-child,.message.model .content p:last-child{margin-bottom:0}
-.formatted-response ul,.formatted-response ol{margin:.6em 0 1em;padding-left:1.45em}.formatted-response li+li{margin-top:.28em}
-.formatted-response blockquote,.message.model .content blockquote{margin:1em 0;padding:.65em 1em;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--bg-main) 70%,var(--accent));border-radius:0 8px 8px 0;color:var(--text-muted)}
-.formatted-response .table-wrap{width:100%;margin:1em 0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:10px}
-.formatted-response table,.message.model .content table{width:100%;margin:0;border:0;border-collapse:separate;border-spacing:0;font-size:.94em;background:var(--bg-main)}
-.formatted-response th,.formatted-response td,.message.model .content th,.message.model .content td{padding:.62em .78em;border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:left;vertical-align:top;line-height:1.5;white-space:normal;min-width:90px}
-.formatted-response th:last-child,.formatted-response td:last-child,.message.model .content th:last-child,.message.model .content td:last-child{border-right:0}.formatted-response tbody tr:last-child td,.message.model .content tbody tr:last-child td{border-bottom:0}
-.formatted-response th,.message.model .content th{font-weight:700;background:var(--bg-side);color:var(--text-main);white-space:nowrap}.formatted-response tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-main) 94%,var(--bg-side))}
-.formatted-response th p,.formatted-response td p,.message.model .content th p,.message.model .content td p{margin:0}.formatted-response th code,.formatted-response td code{white-space:normal}.formatted-response hr,.message.model .content hr{margin:1.25em 0;border:0;border-top:1px solid var(--border)}
-.formatted-response img{max-width:100%;height:auto;border-radius:10px}.formatted-response .katex-display{margin:.8em 0;overflow-x:auto;overflow-y:hidden;padding:.1em 0}.formatted-response .katex{font-size:1.04em}.formatted-response .katex-display>.katex{max-width:100%}
+.formatted-response,
+.message.model .content {
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
 
-/* Code block: relative wrapper + absolute Copy + separate horizontal scroll viewport. */
-.formatted-response .code-block-shell,.message.model .code-block-shell{position:relative!important;display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:.9em 0!important;border:1px solid var(--border);border-radius:10px;background:var(--bg-main);box-sizing:border-box;overflow:visible!important}
-.formatted-response .code-copy-btn,.message.model .code-copy-btn{position:absolute!important;top:8px!important;right:8px!important;z-index:20!important;display:inline-flex!important;align-items:center;justify-content:center;gap:.35rem;min-height:30px;padding:.28rem .65rem;border:1px solid var(--border);border-radius:7px;background:var(--bg-main);color:var(--text-main);cursor:pointer;font:inherit;font-size:.78rem;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.08);box-sizing:border-box}
-.formatted-response .code-copy-btn:hover,.message.model .code-copy-btn:hover{background:var(--bg-hover)}.formatted-response .code-copy-btn.copied,.message.model .code-copy-btn.copied{font-weight:600}
-.formatted-response .code-scroll,.message.model .code-scroll{display:block!important;position:relative;width:100%!important;max-width:100%!important;min-width:0!important;padding-top:40px!important;overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch;box-sizing:border-box}
-.formatted-response .code-scroll>pre,.message.model .code-scroll>pre{display:block!important;width:max-content!important;min-width:100%!important;max-width:none!important;margin:0!important;padding:.75rem!important;border:0;border-radius:0;overflow:visible!important;box-sizing:border-box}
-.formatted-response .code-scroll>pre code,.message.model .code-scroll>pre code{display:block!important;width:max-content!important;min-width:100%!important;white-space:pre!important;word-break:normal!important;overflow-wrap:normal!important}
-.formatted-response code,.message.model .content code{font-size:.92em}
-.formatted-response td .code-block-shell,.formatted-response th .code-block-shell,.message.model td .code-block-shell,.message.model th .code-block-shell{width:100%!important;max-width:100%!important;min-width:0!important}
+.formatted-response h1,
+.formatted-response h2,
+.formatted-response h3,
+.formatted-response h4,
+.message.model .content h1,
+.message.model .content h2,
+.message.model .content h3,
+.message.model .content h4 {
+    margin: 1.15em 0 0.55em;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.formatted-response h1:first-child,
+.formatted-response h2:first-child,
+.formatted-response h3:first-child,
+.message.model .content h1:first-child,
+.message.model .content h2:first-child,
+.message.model .content h3:first-child {
+    margin-top: 0;
+}
+
+.formatted-response h1,
+.message.model .content h1 {
+    font-size: 1.45rem;
+}
+
+.formatted-response h2,
+.message.model .content h2 {
+    font-size: 1.25rem;
+}
+
+.formatted-response h3,
+.message.model .content h3 {
+    font-size: 1.08rem;
+}
+
+.formatted-response p,
+.message.model .content p {
+    margin: 0 0 0.85em;
+    line-height: 1.7;
+}
+
+.formatted-response p:last-child,
+.message.model .content p:last-child {
+    margin-bottom: 0;
+}
+
+.formatted-response ul,
+.formatted-response ol,
+.message.model .content ul,
+.message.model .content ol {
+    margin: 0.6em 0 1em;
+    padding-left: 1.45em;
+}
+
+.formatted-response li + li,
+.message.model .content li + li {
+    margin-top: 0.28em;
+}
+
+.formatted-response blockquote,
+.message.model .content blockquote {
+    margin: 1em 0;
+    padding: 0.65em 1em;
+    border-left: 3px solid var(--accent);
+    background: color-mix(
+        in srgb,
+        var(--bg-main) 70%,
+        var(--accent)
+    );
+    border-radius: 0 8px 8px 0;
+    color: var(--text-muted);
+}
+
+.formatted-response hr,
+.message.model .content hr {
+    margin: 1.25em 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+.formatted-response img,
+.message.model .content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
 
 
 /* ============================================================
-   Chemistry / KaTeX enhancements
+   Tables
+   ============================================================ */
+
+.formatted-response .table-wrap,
+.message.model .content .table-wrap {
+    width: 100%;
+    max-width: 100%;
+    margin: 1em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.formatted-response table,
+.message.model .content table {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.94em;
+    background: var(--bg-main);
+}
+
+.formatted-response th,
+.formatted-response td,
+.message.model .content th,
+.message.model .content td {
+    padding: 0.62em 0.78em;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+    white-space: normal;
+    min-width: 90px;
+}
+
+.formatted-response th:last-child,
+.formatted-response td:last-child,
+.message.model .content th:last-child,
+.message.model .content td:last-child {
+    border-right: 0;
+}
+
+.formatted-response tbody tr:last-child td,
+.message.model .content tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.formatted-response th,
+.message.model .content th {
+    font-weight: 700;
+    background: var(--bg-side);
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+.formatted-response tr:nth-child(even) td,
+.message.model .content tr:nth-child(even) td {
+    background: color-mix(
+        in srgb,
+        var(--bg-main) 94%,
+        var(--bg-side)
+    );
+}
+
+.formatted-response th p,
+.formatted-response td p,
+.message.model .content th p,
+.message.model .content td p {
+    margin: 0;
+}
+
+.formatted-response th code,
+.formatted-response td code,
+.message.model .content th code,
+.message.model .content td code {
+    white-space: normal;
+}
+
+
+/* ============================================================
+   KaTeX / Chemistry
    ============================================================ */
 
 .formatted-response .katex,
@@ -51,32 +207,16 @@
     max-width: none;
 }
 
-/*
- * Chemistry formulas can contain long reaction equations.
- * Keep them readable on mobile without breaking the formula.
- */
 .formatted-response .katex-display .katex-html,
 .message.model .content .katex-display .katex-html {
     min-width: max-content;
 }
 
-/*
- * Inline chemistry such as:
- *
- * H₂O
- * CO₂
- * SO₄²⁻
- * Fe³⁺
- */
 .formatted-response .katex,
 .message.model .content .katex {
     white-space: nowrap;
 }
 
-/*
- * Chemistry reaction arrows and symbols should
- * remain vertically aligned with surrounding text.
- */
 .formatted-response .katex .mord,
 .formatted-response .katex .mrel,
 .formatted-response .katex .mbin,
@@ -91,6 +231,116 @@
 }
 
 
+/* ============================================================
+   Code blocks
+   ============================================================ */
+
+.formatted-response .code-block-shell,
+.message.model .code-block-shell {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0.9em 0 !important;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-main);
+    box-sizing: border-box;
+    overflow: visible !important;
+}
+
+.formatted-response .code-copy-btn,
+.message.model .code-copy-btn {
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    z-index: 20 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-height: 30px;
+    padding: 0.28rem 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--bg-main);
+    color: var(--text-main);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.formatted-response .code-copy-btn:hover,
+.message.model .code-copy-btn:hover {
+    background: var(--bg-hover);
+}
+
+.formatted-response .code-copy-btn.copied,
+.message.model .code-copy-btn.copied {
+    font-weight: 600;
+}
+
+.formatted-response .code-scroll,
+.message.model .code-scroll {
+    display: block !important;
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding-top: 40px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+.formatted-response .code-scroll > pre,
+.message.model .code-scroll > pre {
+    display: block !important;
+    width: max-content !important;
+    min-width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0.75rem !important;
+    border: 0;
+    border-radius: 0;
+    overflow: visible !important;
+    box-sizing: border-box;
+}
+
+.formatted-response .code-scroll > pre code,
+.message.model .code-scroll > pre code {
+    display: block !important;
+    width: max-content !important;
+    min-width: 100% !important;
+    white-space: pre !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+
+.formatted-response code,
+.message.model .content code {
+    font-size: 0.92em;
+}
+
+.formatted-response td .code-block-shell,
+.formatted-response th .code-block-shell,
+.message.model td .code-block-shell,
+.message.model th .code-block-shell {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+}
+
+
+/* ============================================================
+   Mobile
+   ============================================================ */
+
 @media (max-width: 600px) {
     .formatted-response h1,
     .message.model .content h1 {
@@ -102,13 +352,16 @@
         font-size: 1.14rem;
     }
 
-    .formatted-response .table-wrap {
+    .formatted-response .table-wrap,
+    .message.model .content .table-wrap {
         margin: 0.9em 0;
         border-radius: 9px;
     }
 
-    .formatted-response table {
+    .formatted-response table,
+    .message.model .content table {
         font-size: 0.88em;
+        width: 100%;
     }
 
     .formatted-response th,
@@ -117,6 +370,14 @@
     .message.model .content td {
         padding: 0.55em 0.65em;
         min-width: 100px;
+    }
+
+    /*
+     * Keep table as a real table.
+     * Horizontal scrolling belongs to .table-wrap.
+     */
+    .message.model .content table {
+        display: table;
     }
 
     .formatted-response .katex,
@@ -142,9 +403,4 @@
     .message.model .code-scroll {
         padding-top: 38px !important;
     }
-
-    .message.model .content table {
-        display: block;
-        overflow-x: auto;
-    }
-}
+   }
