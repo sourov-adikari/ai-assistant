@@ -1,4 +1,7 @@
-/* Technical response typography */
+/* ============================================================
+   Technical response typography
+   ============================================================ */
+
 .formatted-response,
 .message.model .content {
     line-height: 1.7;
@@ -96,69 +99,75 @@
 
 
 /* ============================================================
-   Tables
+   Markdown Tables
    ============================================================ */
 
 .formatted-response .table-wrap,
 .message.model .content .table-wrap {
+    display: block;
     width: 100%;
     max-width: 100%;
     margin: 1em 0;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
     border: 1px solid var(--border);
     border-radius: 10px;
-    box-sizing: border-box;
 }
 
-.formatted-response table,
-.message.model .content table {
-    width: 100%;
+.formatted-response .table-wrap > table,
+.message.model .content .table-wrap > table {
+    display: table;
+    width: max-content;
+    min-width: 100%;
+    max-width: none;
     margin: 0;
     border: 0;
     border-collapse: separate;
     border-spacing: 0;
-    font-size: 0.94em;
     background: var(--bg-main);
+    font-size: 0.94em;
 }
 
-.formatted-response th,
-.formatted-response td,
-.message.model .content th,
-.message.model .content td {
+.formatted-response table th,
+.formatted-response table td,
+.message.model .content table th,
+.message.model .content table td {
     padding: 0.62em 0.78em;
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     text-align: left;
     vertical-align: top;
     line-height: 1.5;
-    white-space: normal;
     min-width: 90px;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
-.formatted-response th:last-child,
-.formatted-response td:last-child,
-.message.model .content th:last-child,
-.message.model .content td:last-child {
+.formatted-response table th:last-child,
+.formatted-response table td:last-child,
+.message.model .content table th:last-child,
+.message.model .content table td:last-child {
     border-right: 0;
 }
 
-.formatted-response tbody tr:last-child td,
-.message.model .content tbody tr:last-child td {
+.formatted-response table tbody tr:last-child td,
+.message.model .content table tbody tr:last-child td {
     border-bottom: 0;
 }
 
-.formatted-response th,
-.message.model .content th {
+.formatted-response table th,
+.message.model .content table th {
     font-weight: 700;
     background: var(--bg-side);
     color: var(--text-main);
     white-space: nowrap;
 }
 
-.formatted-response tr:nth-child(even) td,
-.message.model .content tr:nth-child(even) td {
+.formatted-response table tr:nth-child(even) td,
+.message.model .content table tr:nth-child(even) td {
     background: color-mix(
         in srgb,
         var(--bg-main) 94%,
@@ -166,18 +175,19 @@
     );
 }
 
-.formatted-response th p,
-.formatted-response td p,
-.message.model .content th p,
-.message.model .content td p {
+.formatted-response table th p,
+.formatted-response table td p,
+.message.model .content table th p,
+.message.model .content table td p {
     margin: 0;
 }
 
-.formatted-response th code,
-.formatted-response td code,
-.message.model .content th code,
-.message.model .content td code {
+.formatted-response table th code,
+.formatted-response table td code,
+.message.model .content table th code,
+.message.model .content table td code {
     white-space: normal;
+    overflow-wrap: break-word;
 }
 
 
@@ -188,6 +198,7 @@
 .formatted-response .katex,
 .message.model .content .katex {
     font-size: 1.04em;
+    white-space: nowrap;
 }
 
 .formatted-response .katex-display,
@@ -210,11 +221,6 @@
 .formatted-response .katex-display .katex-html,
 .message.model .content .katex-display .katex-html {
     min-width: max-content;
-}
-
-.formatted-response .katex,
-.message.model .content .katex {
-    white-space: nowrap;
 }
 
 .formatted-response .katex .mord,
@@ -354,30 +360,27 @@
 
     .formatted-response .table-wrap,
     .message.model .content .table-wrap {
+        width: 100%;
+        max-width: 100%;
         margin: 0.9em 0;
         border-radius: 9px;
     }
 
-    .formatted-response table,
-    .message.model .content table {
-        font-size: 0.88em;
-        width: 100%;
-    }
-
-    .formatted-response th,
-    .formatted-response td,
-    .message.model .content th,
-    .message.model .content td {
-        padding: 0.55em 0.65em;
-        min-width: 100px;
-    }
-
-    /*
-     * Keep table as a real table.
-     * Horizontal scrolling belongs to .table-wrap.
-     */
-    .message.model .content table {
+    .formatted-response .table-wrap > table,
+    .message.model .content .table-wrap > table {
         display: table;
+        width: max-content;
+        min-width: 100%;
+        max-width: none;
+        font-size: 0.88em;
+    }
+
+    .formatted-response table th,
+    .formatted-response table td,
+    .message.model .content table th,
+    .message.model .content table td {
+        min-width: 100px;
+        padding: 0.55em 0.65em;
     }
 
     .formatted-response .katex,
@@ -403,4 +406,4 @@
     .message.model .code-scroll {
         padding-top: 38px !important;
     }
-   }
+}
