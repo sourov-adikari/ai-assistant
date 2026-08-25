@@ -1,0 +1,245 @@
+/* ============================================================
+   GEMINI ASSISTANT - MESSAGE ACTIONS
+============================================================ */
+
+.message {
+    position: relative;
+    outline: none;
+    margin-bottom: 26px !important;
+}
+
+.message:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    outline-offset: 2px;
+    border-radius: var(--radius);
+}
+
+.message.model {
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+.message.model > .content {
+    padding: 14px !important;
+    border-radius: var(--radius);
+    background: var(--msg-ai);
+}
+
+.message.user > .content {
+    padding-bottom: 10px !important;
+}
+
+.message .content {
+    position: relative;
+    min-height: 0;
+}
+
+.message.model .content,
+.message.user .content {
+    padding-bottom: 10px;
+}
+
+.message.model .content > p:last-child,
+.message.user .content > p:last-child {
+    margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   ACTION BAR — ONE SHARED CONTAINER FOR COPY + AUDIO
+------------------------------------------------------------ */
+.message > .message-actions {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    z-index: 20;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    padding: 2px;
+
+    min-height: 32px;
+
+    border: 1px solid color-mix(in srgb, var(--text-muted) 35%, transparent);
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--msg-ai) 92%, transparent);
+    box-shadow: none;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-3px);
+    transform-origin: top right;
+
+    transition:
+        opacity .16s ease,
+        transform .16s ease,
+        visibility .16s ease;
+}
+
+.message:hover > .message-actions,
+.message:focus > .message-actions,
+.message:focus-within > .message-actions,
+.message > .message-actions:hover,
+.message > .message-actions:focus-within {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0);
+}
+
+/* Individual icons — parent owns the border/background */
+.message-action-btn {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    padding: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--text-muted);
+
+    cursor: pointer;
+    font-size: .95rem;
+    box-shadow: none;
+
+    transition:
+        color .15s ease,
+        opacity .15s ease,
+        transform .15s ease;
+}
+
+.message-action-btn:hover {
+    background: transparent;
+    border: 0;
+    color: var(--accent);
+    box-shadow: none;
+}
+
+.message-action-btn:active {
+    transform: scale(.91);
+}
+
+.message-action-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    border-radius: 6px;
+}
+
+.message-action-btn.copied,
+.message-action-btn.speaking {
+    color: var(--accent);
+    background: transparent;
+    border: 0;
+}
+
+.message > .tts-btn {
+    display: none !important;
+}
+
+/* ------------------------------------------------------------
+   AI THINKING — THREE DOTS ONLY
+------------------------------------------------------------ */
+.ai-thinking {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 26px;
+    padding: 2px 1px;
+}
+
+.ai-thinking span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: aiThinkingDot 2.15s infinite ease-in-out;
+}
+
+.ai-thinking span:nth-child(2) { animation-delay: .24s; }
+.ai-thinking span:nth-child(3) { animation-delay: .48s; }
+
+@keyframes aiThinkingDot {
+    0%, 62%, 100% { opacity: .28; transform: translateY(0) scale(.88); }
+    31% { opacity: 1; transform: translateY(-4px) scale(1); }
+}
+
+/* ------------------------------------------------------------
+   AI STREAMING CURSOR — active response only
+------------------------------------------------------------ */
+.message.model.is-typing .content::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1.02em;
+    margin-left: 4px;
+    vertical-align: -0.14em;
+    border-radius: 2px;
+    background: var(--accent);
+    animation: responseTypingCursor 1.35s steps(1, end) infinite;
+}
+
+@keyframes responseTypingCursor {
+    0%, 48% { opacity: 1; }
+    49%, 100% { opacity: 0; }
+}
+
+/* Sidebar chat action spacing */
+.session-item .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 8px;
+    padding-left: 6px;
+    flex: 0 0 auto;
+}
+
+.session-item .actions .session-action + .session-action {
+    margin-left: 2px;
+}
+
+@media (max-width: 768px) {
+    .message {
+        margin-bottom: 24px !important;
+    }
+
+    .message.model > .content {
+        padding: 11px !important;
+    }
+
+    .message > .message-actions {
+        top: calc(100% + 3px);
+        right: 2px;
+        gap: 0;
+        padding: 2px;
+        min-height: 30px;
+        border-radius: 9px;
+    }
+
+    .message-action-btn {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        border: 0;
+        background: transparent;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .message-action-btn,
+    .message > .message-actions {
+        transition: none;
+    }
+
+    .ai-thinking span,
+    .message.model.is-typing .content::after {
+        animation: none;
+        opacity: .7;
+    }
+}
