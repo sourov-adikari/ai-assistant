@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#121212" id="theme-color-meta">
+    <meta name="description" content="Gemini AI Personal Assistant by Sourov Adikari — a bilingual English and বাংলা AI assistant with multi-session chat, voice input, text-to-speech and dynamic Gemini model support.">
+    <meta name="keywords" content="Gemini AI, AI assistant, personal assistant, Bengali AI, বাংলা AI, English AI, Gemini assistant, Sourov Adikari">
+    <meta name="author" content="Sourov Adikari"><meta name="creator" content="Sourov Adikari"><meta name="publisher" content="Sourov Adikari">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="googlebot" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="https://sourovadikari.xyz/">
+    <meta property="og:type" content="website"><meta property="og:site_name" content="Gemini AI Personal Assistant"><meta property="og:title" content="Gemini AI Personal Assistant — Sourov Adikari"><meta property="og:description" content="A bilingual English and বাংলা Gemini AI personal assistant by Sourov Adikari."><meta property="og:url" content="https://sourovadikari.xyz/"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="bn_BD">
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Gemini AI Personal Assistant — Sourov Adikari"><meta name="twitter:description" content="A bilingual English and বাংলা Gemini AI personal assistant by Sourov Adikari.">
+    <title>Gemini AI Personal Assistant — Sourov Adikari</title>
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="stylesheet" href="/styles/sidebar.css">
+    <link rel="stylesheet" href="/styles/message-actions.css">
+    <link rel="stylesheet" href="/styles/response-format.css">
+    <link rel="stylesheet" href="/styles/model-selector.css">
+    <link rel="stylesheet" href="/styles/disclaimer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.1/dist/katex.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+<div id="app-container"><aside id="sidebar" aria-label="Chat navigation"><div class="sidebar-top"><button type="button" id="new-chat-btn" class="primary-sidebar-btn"><i class="fas fa-plus"></i><span data-i18n="newChat">New Chat</span></button><button type="button" id="close-sidebar" class="mobile-only icon-btn" aria-label="Close menu"><i class="fas fa-times"></i></button></div><div id="search-container"><div class="search-box"><i class="fas fa-search"></i><input type="search" id="chat-search" placeholder="Search chats..." data-i18n-placeholder="searchPlaceholder" autocomplete="off" aria-label="Search chats"><button type="button" id="clear-search-btn" class="hidden" aria-label="Clear search"><i class="fas fa-times"></i></button></div></div><div id="chat-history-list" role="navigation" aria-label="Chat history"></div><div class="sidebar-bottom"><button type="button" id="clear-all-btn" class="sidebar-action danger-action"><i class="fas fa-trash-alt"></i><span data-i18n="clearAll">Clear All</span></button><button type="button" id="theme-toggle" class="sidebar-action"><i class="fas fa-moon"></i><span data-i18n="themeText">Dark Mode</span></button><button type="button" id="lang-toggle" class="sidebar-action"><i class="fas fa-language"></i><span id="lang-label">বাংলা</span></button></div></aside>
+<main id="main-content"><header id="app-header"><div class="header-left"><button type="button" id="menu-toggle" class="icon-btn" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button><div class="title-wrapper"><h1 id="chat-title">Gemini Assistant</h1><span id="connection-status" class="status-indicator" aria-live="polite"></span></div></div><div class="header-right"><label for="model-select" class="sr-only">Model</label><select id="model-select" title="Model Selection" aria-label="Model Selection" disabled><option value="">Loading models...</option></select><button type="button" id="export-btn" class="icon-btn" title="Export Conversation" aria-label="Export Conversation"><i class="fas fa-file-export"></i></button></div></header><section id="chat-window" aria-label="Conversation"><div id="messages"></div><div id="scroll-anchor" aria-hidden="true"></div></section><div id="input-container"><div class="settings-bar"><label for="persona-select" class="sr-only">Assistant personality</label><select id="persona-select" title="Assistant Personality"><option value="general">General Assistant</option><option value="tutor">Language Tutor</option><option value="coder">Code Expert</option><option value="writer">Creative Writer</option><option value="solver">Problem Solver</option></select><div class="temp-wrapper"><label for="temp-slider">Temp:</label><input type="range" id="temp-slider" min="0" max="2" step="0.1" value="0.7"><output id="temp-value">0.7</output></div></div><form id="chat-form" autocomplete="off"><textarea id="user-input" rows="1" maxlength="20000" placeholder="Type a message..." required autocomplete="off" spellcheck="true" enterkeyhint="send" aria-label="Message"></textarea><div class="btn-group"><button type="button" id="stt-btn" class="icon-btn" title="Voice Input" aria-label="Voice Input"><i class="fas fa-microphone"></i></button><button type="submit" id="send-btn" class="icon-btn send-btn" title="Send Message" aria-label="Send Message" disabled><i class="fas fa-paper-plane"></i></button><button type="button" id="stop-btn" class="icon-btn stop-btn hidden" title="Stop Generation" aria-label="Stop Generation"><i class="fas fa-stop"></i></button></div></form><div id="input-status" class="input-status" aria-live="polite"></div></div></main></div>
+<div id="sidebar-overlay" class="hidden" aria-hidden="true"></div><div id="notification-container" aria-live="polite" aria-atomic="true"></div><div id="modal-container" class="hidden" aria-hidden="true"></div>
+<script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/dist/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.6/purify.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.18.1/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.18.1/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="/app/app.js"></script>
+<script src="/components/chat-storage.js"></script>
+<script src="/lib/markdown.js"></script>
+<script src="/components/copy-button.js"></script>
+<script src="/components/message-actions.js"></script>
+<script src="/components/sidebar.js"></script>
+<script src="/components/model-selector.js"></script>
+<script src="/components/disclaimer.js"></script>
+<script src="/lib/chat-scroll.js"></script>
+</body></html>
