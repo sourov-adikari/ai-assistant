@@ -807,10 +807,18 @@ async function startStreaming(
                         fullResponse +=
                             parsed.text;
 
-                        renderMarkdown(
-                            contentElement,
-                            fullResponse
-                        );
+                        //
+                        if (typeof window.renderEnhancedMarkdown === "function") {
+                            window.renderEnhancedMarkdown(
+                                contentElement,
+                                fullResponse
+                            );
+                        } else {
+                            renderMarkdown(
+                                contentElement,
+                                fullResponse
+                            );
+                        }
 
                         scrollDown();
                     }
