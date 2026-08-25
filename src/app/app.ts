@@ -770,17 +770,9 @@ async function startStreaming(
                     continue;
                 }
 
-                const data =
-                    dataLines
-                        .map(
-                            (line) =>
-                                line
-                                    .slice(
-                                        5
-                                    )
-                                    .trim()
-                        )
-                        .join("\n");
+                const data = dataLines.map((line) =>
+                    line.startsWith("data:") ? line.slice(5).replace(/^ /, "") : line
+                                          ).join("\n");
 
                 if (!data) {
                     continue;
