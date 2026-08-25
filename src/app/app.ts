@@ -901,10 +901,6 @@ async function startStreaming(
         abortController = null;
         isGenerating = false;
 
-        addCodeCopyButtons(
-            aiMessage
-        );
-
         scrollDown();
     }
 }
@@ -2098,95 +2094,6 @@ function stopGeneration() {
         abortController.abort();
     }
 }
-
-
-// ============================================================
-// CODE COPY
-// ============================================================
-
-function addCodeCopyButtons(
-    element
-) {
-    if (!element) {
-        return;
-    }
-
-    element
-        .querySelectorAll(
-            "pre code"
-        )
-        .forEach(
-            (codeBlock) => {
-                const parent =
-                    codeBlock.parentElement;
-
-                if (
-                    parent.querySelector(
-                        ".copy-code-btn"
-                    )
-                ) {
-                    return;
-                }
-
-                const button =
-                    document.createElement(
-                        "button"
-                    );
-
-                button.type =
-                    "button";
-
-                button.className =
-                    "copy-code-btn";
-
-                button.title =
-                    "Copy code";
-
-                button.innerHTML =
-                    '<i class="fas fa-copy"></i>';
-
-                button.addEventListener(
-                    "click",
-                    async () => {
-                        try {
-                            await navigator.clipboard.writeText(
-                                codeBlock.innerText
-                            );
-
-                            button.innerHTML =
-                                '<i class="fas fa-check"></i>';
-
-                            setTimeout(
-                                () => {
-                                    button.innerHTML =
-                                        '<i class="fas fa-copy"></i>';
-                                },
-                                1500
-                            );
-
-                        } catch (error) {
-                            console.error(
-                                "Copy failed:",
-                                error
-                            );
-
-                            showNotification(
-                                i18n[
-                                    currentLang
-                                ].copyFailed,
-                                "error"
-                            );
-                        }
-                    }
-                );
-
-                parent.appendChild(
-                    button
-                );
-            }
-        );
-}
-
 
 // ============================================================
 // EXPORT
